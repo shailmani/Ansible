@@ -1,0 +1,29 @@
+- name: Create a web image
+  hosts: dockerhosts
+  tasks:
+  - name: Build image using docker_image module and path of docker file
+    docker_image:
+       path: /root/docker
+       name: webimage
+
+# we will run a docker file in the target dockerhost server the contents of the docker files are:
+# Dockerfile
+# FROM centos
+# MAINTAINER shailedra
+# RUN yum -y install httpd
+# COPY index.html /var/www/html/index.html
+# COPY run.sh run.sh
+# CMD ./run.sh
+#
+#
+#
+#
+# Content of index.html file
+# this is apache runnning in docker container by shailendra.
+#
+#
+#
+# run.sh this script will be starting the httpd service
+#
+# run.sh
+# exec /usr/sbin/apachectl -D FOREGROUND 

@@ -1,0 +1,6 @@
+- name: Pull the centos image
+  hosts:localhost
+  tasks:
+    -name: pull image by using docker_image module..
+    docker_image:
+      name: centos
